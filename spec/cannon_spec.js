@@ -10,10 +10,19 @@ describe("Cannon", function() {
   });
 
   describe("shooting", function() {
-    it("adds a bullet to the magazine", function() {
-      cannon.shoot();
+    it("creates a bullet with the associated img and the received x and y", function() {
+      cannon = new Cannon("bullet_image");
+      var bullet = cannon.shoot(10, 20);
+      expect(bullet.sprite.image).toBe("bullet_image");
+      expect(bullet.sprite.x).toBe(10);
+      expect(bullet.sprite.y).toBe(20);
+    });
+
+    it("adds that bullet to the magazine", function() {
+      cannon.shoot(10, 20);
       expect(cannon.magazine.length).toBe(1);
     });
+
 
     it("respects the cooldown time", function() {
       cannon.shoot();
@@ -40,7 +49,6 @@ describe("Cannon", function() {
       spyOn(bullet, 'render');
       cannon.render(ctx);
       expect(bullet.render).toHaveBeenCalledWith(ctx);
-    
     });
   });
 });
