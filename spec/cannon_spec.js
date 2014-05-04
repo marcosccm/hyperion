@@ -14,8 +14,8 @@ describe("Cannon", function() {
       cannon = new Cannon("bullet_image");
       var bullet = cannon.shoot(10, 20);
       expect(bullet.sprite.image).toBe("bullet_image");
-      expect(bullet.sprite.x).toBe(10);
-      expect(bullet.sprite.y).toBe(20);
+      expect(bullet.x).toBe(10);
+      expect(bullet.y).toBe(20);
     });
 
     it("adds that bullet to the magazine", function() {
