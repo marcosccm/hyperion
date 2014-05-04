@@ -1,0 +1,10 @@
+{
+  "name" : "a game",
+  "version" : "0.0.0",
+  "private" : "true",
+  "dependencies" : {
+    "rsvp" : "*",
+    "keydrown" : "*",
+    "underscore" : "*"
+  }
+}
