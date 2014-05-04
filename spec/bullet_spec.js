@@ -6,9 +6,11 @@ describe("Bullet", function() {
   });
 
   describe("update", function() {
-    it("increases the bullet x by speed * dt", function() {
+    it("updates itself by calling the moviment function", function() {
+      var movement = jasmine.createSpy();
+      bullet.movement = movement;
       bullet.update(1);
-      expect(bullet.x).toEqual(500);
+      expect(movement).toHaveBeenCalled();
     });
   });
 

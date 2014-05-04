@@ -6,6 +6,7 @@ var gulpIgnore = require('gulp-ignore')
 
 var paths = {
   scripts: [
+    'lib/movements.js',
     'lib/sprite.js',
     'lib/cannon.js'
   ],
