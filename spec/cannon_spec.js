@@ -11,22 +11,12 @@ describe("Cannon", function() {
 
   describe("shooting", function() {
     it("adds a bullet to the magazine", function() {
-      cannon.lastShot = Date.now() - 101;
       cannon.shoot();
       expect(cannon.magazine.length).toBe(1);
     });
 
-    it("updates the lastShot time", function() {
-      cannon.lastShot = Date.now() - 101;
-      cannon.shoot();
-      expect(cannon.lastShot).toBeCloseTo(Date.now(), 10);
-    });
-
     it("respects the cooldown time", function() {
-      cannon.lastShot = Date.now();
       cannon.shoot();
-      expect(cannon.magazine.length).toBe(0);
-      cannon.lastShot = Date.now() - 101;
       cannon.shoot();
       expect(cannon.magazine.length).toBe(1);
     });
@@ -34,7 +24,6 @@ describe("Cannon", function() {
 
   describe("updating", function() {
     it("calls update on all bullets", function() {
-      cannon.lastShot = Date.now() - 101;
       var dt = {};
       var bullet = cannon.shoot()
       spyOn(bullet, 'update');
@@ -46,7 +35,6 @@ describe("Cannon", function() {
 
   describe("rendering", function() {
     it("calls render on all bullets", function() {
-      cannon.lastShot = Date.now() - 101;
       var ctx = {};
       var bullet = cannon.shoot()
       spyOn(bullet, 'render');
