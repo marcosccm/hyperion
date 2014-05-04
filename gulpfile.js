@@ -1,19 +1,33 @@
 var gulp = require('gulp');
 var karma = require('gulp-karma');
 var stream = require('streamqueue')
+var bowerFiles = require('gulp-bower-files')
+var gulpIgnore = require('gulp-ignore')
 
 var paths = {
   scripts: [
-    'bower_components/underscore/underscore.js',
-    'script/bullets.js',
+    'lib/sprite.js',
+    'lib/cannon.js'
   ],
   specs: [
     'spec/*.js'
   ]
 }
+
+gulp.task('scripts', function() {
+  return stream(
+      { objectMode: true },
+      bowerFiles(),
+      gulp.src(paths.scripts),
+      ['lib/main.js']
+    ).pipe(concat('app.js'))
+    .pipe(gulp.dest('public'));
+});
+
 gulp.task('spec', function() {
   return stream(
       { objectMode: true },
+      bowerFiles(),
       gulp.src(paths.scripts),
       gulp.src(paths.specs)
     ).pipe(karma({
