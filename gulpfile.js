@@ -10,6 +10,7 @@ var paths = {
     'lib/sprite.js',
     'lib/bullet.js',
     'lib/cannon.js',
+    'lib/starfield.js',
     'lib/player.js'
   ],
   specs: [
