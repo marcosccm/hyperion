@@ -8,6 +8,7 @@ var paths = {
   scripts: [
     'lib/movements.js',
     'lib/sprite.js',
+    'lib/bullet.js',
     'lib/cannon.js'
   ],
   specs: [
