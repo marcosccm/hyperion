@@ -38,7 +38,19 @@ describe("Cannon", function() {
       spyOn(bullet, 'update');
       cannon.update(dt);
       expect(bullet.update).toHaveBeenCalledWith(dt);
-    
+    });
+
+    it("removes bullets that are out of range", function() {
+      cannon = new Cannon("bullet_image", 90);
+      cannon.shoot();
+      cannon.cooled = true;
+      cannon.shoot();
+      cannon.magazine[0].x = 100;
+      cannon.magazine[1].x = 90;
+
+      expect(cannon.magazine.length).toEqual(2);
+      cannon.update(0);
+      expect(cannon.magazine.length).toEqual(1);
     });
   });
 
