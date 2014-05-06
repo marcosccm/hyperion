@@ -9,6 +9,7 @@ var paths = {
     'lib/movements.js',
     'lib/sprite.js',
     'lib/bullet.js',
+    'lib/enemies.js',
     'lib/cannon.js',
     'lib/starfield.js',
     'lib/player.js'
