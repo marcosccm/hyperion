@@ -8,6 +8,7 @@ var paths = {
   scripts: [
     'lib/movements.js',
     'lib/sprite.js',
+    'lib/drawable.js',
     'lib/collisions.js',
     'lib/bullet.js',
     'lib/enemies.js',
